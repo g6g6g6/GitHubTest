@@ -1,43 +1,39 @@
 <!DOCTYPE HTML>
 <html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <title>ポケモン捜し</title>
-        <link href="base.css" type="text/css" rel="stylesheet" media="all">
-    </head>
-    <body>
-        <div class="head_container">
-            <div class="head_scroe">
-                回数：
-                <img id="num_third" src="images/num0.png">
-                <img id="num_second" src="images/num0.png">
-                <img id="num_first" src="images/num0.png">
-            </div>
-            <div class="head_time">
-                <div id="time"></div>
-                <!--<div id="passing_time"></div>-->
-            </div>
-            
-        </div>
-        
-        
-        <ul id="card"></ul>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script src="js/card.js"></script>
-<!--
-        <script>
-            var start = new Date();
-            var datet = 0;
 
-            time();
-            function time(){
-                var now = new Date();
-                datet = parseInt((now.getTime() - start.getTime()) / 1000);
-                //document.getElementById("time").innerHTML = "nowTime：" + now.toLocaleTimeString();
-                document.getElementById("time").innerHTML = "時間：" + datet;
-            }
-            setInterval('time()',1000);
-        </script>
--->
-    </body>
+<head>
+    <meta charset="utf-8">
+    <title>ポケモン捜し</title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link href="base.css" type="text/css" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="head_container">
+        <div class="head_scroe">
+            回数：
+            <img id="num_third" src="images/num0.png">
+            <img id="num_second" src="images/num0.png">
+            <img id="num_first" src="images/num0.png">
+        </div>
+        <div class="head_time">
+            <div id="time">時間：0</div>
+            <!--<div id="passing_time"></div>-->
+        </div>
+
+    </div>
+    <div id="startScreen" style="display:none;">
+    </div>
+
+    <ul id="card"></ul>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/card.js"></script>
+
+    <script>
+
+    </script>
+
+</body>
+
 </html>
