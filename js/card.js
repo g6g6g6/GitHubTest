@@ -20,11 +20,12 @@ var imgClkCnt = 0;
 //画像クリックした回数
 
 var time;
-var start = new Date();
+var start;
 var datet = 0;
 
 //タイマー始まる
 function startTimer() {
+  start = new Date();
   time = setInterval(function () {
     var now = new Date();
     datet = parseInt((now.getTime() - start.getTime()) / 1000);
@@ -154,7 +155,22 @@ function comparison() {
         stopTimer();
 
         //最後のカードがめくられた後にクリアー表示
-        alert("クリアー！");
+        //alert("クリアー！");
+        //ゲームクリアポップアップ画面
+        $("#startScreen").dialog({
+          modal: true, //モーダル表示
+          title: "おめでとうございます", //タイトル
+          buttons: {
+            //ボタン
+            RESTART: function () {
+              //タイマー起動
+              //startTimer();
+              document.location.reload();
+
+              $(this).dialog("close");
+            },
+          },
+        });
       }, returnSec);
     }
   } else {
@@ -191,9 +207,21 @@ $(function () {
     $("#card").append("<li><img src='images/card.png'></li>");
   }
 
-  //タイマー起動
-  startTimer();
-  
+  //スタートモードレス画面表示
+  $("#startScreen").dialog({
+    modal: true, //モーダル表示
+    title: "ゲーム開始", //タイトル
+    buttons: {
+      //ボタン
+      START: function () {
+        //タイマー起動
+        startTimer();
+
+        $(this).dialog("close");
+      },
+    },
+  });
+
   $("#card li").click(function () {
     index = $("#card li").index(this);
     //選択したカードの順番をindexに保存
